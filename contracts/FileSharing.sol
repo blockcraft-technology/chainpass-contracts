@@ -134,7 +134,7 @@ contract FileSharing is ReentrancyGuard {
         emit DataItemPointerUpdated(msg.sender, oldPointer, newPointer);
     }
 
-    function getFilesSharedWithMe(address me) public view returns (DataItem[] memory) {
+    function getDataSharedWithMe(address me) public view returns (DataItem[] memory) {
         uint256 count = 0;
 
         for (uint256 i = 0; i < userPointers[me].length; i++) {
@@ -158,7 +158,7 @@ contract FileSharing is ReentrancyGuard {
         return sharedFiles;
     }
 
-    function getUserFiles(address user) public view returns (address[] memory) {
+    function getUserData(address user) public view returns (address[] memory) {
         return userPointers[user];
     }
 }

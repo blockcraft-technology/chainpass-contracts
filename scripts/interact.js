@@ -2,7 +2,7 @@ const { ethers } = require("hardhat");
 
 const main = async () => {
     const FileSharing = await ethers.getContractFactory("FileSharing");
-    const contract = await FileSharing.attach("0x0bb472E5F639b17cC5E7ffCFd6bbfdc5E2c1470c");
+    const contract = await FileSharing.attach("0x58B19940498f1a15993C6FDC6897BA7b72A71162");
     
     // Create user settings file (random address)
     const randomSettingsFile = ethers.Wallet.createRandom().address;
@@ -27,7 +27,7 @@ const main = async () => {
     console.log("Data file shared with recipient. Transaction ID:", tx.hash);
 
     // Log the contract state after sharing to ensure the file is shared properly
-    const sharedFilesForRecipient = await contract.getFilesSharedWithMe(recipient);
+    const sharedFilesForRecipient = await contract.getDataSharedWithMe(recipient);
     console.log("Files shared with recipient: ", sharedFilesForRecipient);
 
     // Remove sharing with recipient
